@@ -2,4 +2,4 @@ language: node_js
 node_js:
   - "node"
 
-script: npm run test
+script: cd inbox && npm install && npm run test && cd .. && cd lottery && npm install && npm run test && cd .. && cd kickstart && npm install && npm run test
