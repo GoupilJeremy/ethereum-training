@@ -21,7 +21,7 @@ const App = () => {
           setPlayers(players);
           setBalance(balance);
       };
-      fetchData();
+       const results =  fetchData();
   }, []);
 
   const onSubmit = async (event) => {
@@ -54,7 +54,7 @@ const App = () => {
 
   return (
       <>
-          <h2> Lottery Contract </h2>
+          <h2 id="test">Lottery Contract</h2>
           <p>This
               contract
               is
