@@ -1,19 +1,21 @@
-// import React from 'react';
-// import App from './App';
-// import {
-//     render,
-//     getByText,
-//     cleanup
-// } from '@testing-library/react';
-//
-// beforeEach(cleanup);
-//
-// test('renders without crashing', async () => {
-//
-//     try {
-//         const container = await render(<App/>).container;
-//         await getByText(container, 'Lottery Contract', {exact: false});
-//     }catch (error) {
-//         console.error(error);
-//     }
-// });
+import React from 'react';
+import App from './App';
+import {
+    render,
+    getByText,
+    cleanup,
+} from '@testing-library/react';
+// add custom jest matchers from jest-dom
+import '@testing-library/jest-dom/extend-expect'
+
+describe('App', function() {
+    afterEach(cleanup);
+
+    test('renders without crashing', async () => {
+        const   app = (<App fetchData={false}/>);
+
+        const {container} = render(app);
+
+        getByText(container, 'Lottery Contract', {exact: false});
+    });
+});

@@ -4,24 +4,27 @@ import './App.css';
 import web3 from './web3';
 import lottery from './lottery';
 
-const App = () => {
+// Props fetchData
+const App = ({fetchData}) => {
     const [manager, setManager] = useState('');
     const [players, setPlayers] = useState([]);
     const [balance, setBalance] = useState('');
     const [value, setValue] = useState('');
     const [message, setMessage] = useState('');
 
-  useEffect( () => {
-       const fetchData = async () => {
-          const manager = await lottery.methods.manager().call();
-          const players = await lottery.methods.getPlayers().call();
-          const balance = await web3.eth.getBalance(lottery.options.address);
+  useEffect( (fetchData) => {
+      if(fetchData) {
+          fetchData = async () => {
+              const manager = await lottery.methods.manager().call();
+              const players = await lottery.methods.getPlayers().call();
+              const balance = await web3.eth.getBalance(lottery.options.address);
 
-          setManager(manager);
-          setPlayers(players);
-          setBalance(balance);
-      };
-       const results =  fetchData();
+              setManager(manager);
+              setPlayers(players);
+              setBalance(balance);
+          };
+          const results = fetchData();
+      }
   }, []);
 
   const onSubmit = async (event) => {
@@ -54,7 +57,7 @@ const App = () => {
 
   return (
       <>
-          <h2 id="test">Lottery Contract</h2>
+          <h2>Lottery Contract</h2>
           <p>This
               contract
               is
