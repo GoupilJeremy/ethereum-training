@@ -4,7 +4,7 @@ const compiledFactory = require("./build/CampaignFactory.json");
 
 const provider = new HDWalletProvider(
   "exhibit sheriff mixture pear lady senior roast top flee mosquito glory card",
-  "https://rinkeby.infura.io/v3/f8a076d5128e42bd888bfe7ce0e94f1d"
+  "https://rinkeby.infura.io/v3/e2e467093ddd4a1fa8c16831a3a9cb3d"
 );
 
 const web3 = new Web3(provider);
