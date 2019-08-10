@@ -2,4 +2,6 @@ language: node_js
 node_js:
   - "node"
   
-script: cd kickstart && npm install && npm run test
+before_script: chmod 0777 ./node_modules/.bin/mocha	
+
+script: cd inbox && npm install && npm run test && cd .. && cd lottery && npm install && npm run test
