@@ -4,6 +4,7 @@ import {
   CardGroup,
   Button
 } from 'semantic-ui-react';
+import Layout from '../components/Layout';
 
 class CampaignIndex extends Component {
   static async getInitialProps() {
@@ -33,12 +34,20 @@ class CampaignIndex extends Component {
   }
 
   render() {
-    return <div>
-      <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
-      {this.renderCampaigns()}
-      {this.renderCreateCampaign()}
-    </div>;
-  }
+    return (
+    <Layout>
+      <div>
+        <link
+            rel="stylesheet"
+            href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
+        />
+        <h3>Open Campaigns</h3>
+        {this.renderCampaigns()}
+        {this.renderCreateCampaign()}
+      </div>
+    </Layout>
+    )
+  };
 }
 
 export default CampaignIndex;
