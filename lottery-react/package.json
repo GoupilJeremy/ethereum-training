@@ -5,6 +5,7 @@
   "dependencies": {
     "bluebird": "^3.5.5",
     "lodash": "^4.17.15",
+    "mocha": "^5.2.0",
     "next": "^9.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -15,7 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
