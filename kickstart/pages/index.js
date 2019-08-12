@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import factory from "../ethereum/factory";
 import {
-  CardGroup,
+  Card,
   Button
 } from 'semantic-ui-react';
 import Layout from '../components/Layout';
@@ -22,7 +22,7 @@ class CampaignIndex extends Component {
       };
     });
 
-    return <CardGroup items={items} />;
+    return <Card.Group items={items} />;
   }
 
   renderCreateCampaign() {
@@ -30,6 +30,7 @@ class CampaignIndex extends Component {
         content={"Create Campaign"}
         icon="add"
         primary={true}
+        floated="right"
     />;
   }
 
@@ -42,8 +43,8 @@ class CampaignIndex extends Component {
             href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
         />
         <h3>Open Campaigns</h3>
-        {this.renderCampaigns()}
         {this.renderCreateCampaign()}
+        {this.renderCampaigns()}
       </div>
     </Layout>
     )
