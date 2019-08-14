@@ -13,6 +13,9 @@
     "mocha": "^5.2.0",
     "solc": "^0.4.25",
     "truffle-hdwallet-provider": "0.0.3",
-    "web3": "^1.0.0-beta.26"
+    "web3": "^1.0.0-beta.39"
+  },
+  "devDependencies": {
+    "lodash": ">=4.17.13"
   }
 }
