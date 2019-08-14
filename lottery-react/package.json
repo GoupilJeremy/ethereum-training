@@ -5,17 +5,18 @@
   "dependencies": {
     "bluebird": "^3.5.5",
     "lodash": "^4.17.15",
+    "mocha": "^5.2.0",
     "next": "^9.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "^3.0.1",
     "react-test-renderer": "^16.8.6",
-    "web3": "^1.0.0-beta.26"
+    "web3": "^1.0.0-beta.39"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -36,6 +37,7 @@
     "jest": "^24.7.1",
     "jsdom": "^15.1.1",
     "jsdom-global": "^3.0.2",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "handlebars": ">=4.1.2"
   }
 }
