@@ -17,7 +17,6 @@ class CampaignSow extends Component {
             manager: summary[4],
         };
     }
-
     renderCards() {
         const {
             minimumContribution,
