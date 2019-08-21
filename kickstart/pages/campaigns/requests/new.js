@@ -9,7 +9,9 @@ class RequestNew extends Component {
     state = {
         value: '',
         description: '',
-        recipient: ''
+        recipient: '',
+        errorMessage: '',
+        loading: false,
     };
 
     static async getInitialProps(props){
@@ -21,6 +23,7 @@ class RequestNew extends Component {
     onSubmit = async event => {
         event.preventDefault();
 
+        this.setState({loading: true, errorMessage: ''});
         const campaign = Campaign(this.props.address);
 
         const { description, value, recipient} = this.state;
@@ -31,17 +34,26 @@ class RequestNew extends Component {
                 description,
                 web3.utils.toWei(value, 'ether'),
                 recipient
-            ).send({from: accounts[0]})
-        }catch(err){
+            ).send({from: accounts[0]});
 
+            Router.pushRoute('/campaigns/'+ this.props.address + '/requests');
+        }catch(err){
+            this.setState({errorMessage: err.message});
         }
+
+        this.setState({loading: false});
     };
 
     render() {
         return (
             <Layout>
+                <Link route={'/campaigns/'+ this.props.address + '/requests'}>
+                    <a>
+                       Back
+                    </a>
+                </Link>
                 <h3>Create a Request</h3>
-            <Form onSubmit={this.onSubmit}>
+            <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage }>
                 <Form.Field>
                     <label>Description</label>
                     <Input
@@ -65,7 +77,8 @@ class RequestNew extends Component {
                         onChange={event => this.setState({recipient: event.target.value})}
                     />
                 </Form.Field>
-                <Button primary>Create!</Button>
+                <Message error  header={"Oops!"} content={this.state.errorMessage} />
+                <Button primary loading={this.state.loading}>Create!</Button>
             </Form>
             </Layout>
         );
