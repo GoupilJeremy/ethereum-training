@@ -42,8 +42,12 @@ contract Campaign {
     function contribute() public payable {
         require(msg.value > minimumContribution);
 
+        // Keep track of number of contributors
+        if(!approvers[msg.sender]) {
+            approversCount++;
+        }
+
         approvers[msg.sender] = true;
-        approversCount++;
     }
 
     function createRequest(string description, uint value, address recipient) public restricted {
@@ -91,8 +95,12 @@ contract Campaign {
         );
     }
 
-    function getRequestsCount() public view returns (uint) {
+    function getRequestsCount() public view returns (uint256) {
         return requests.length;
+    }
+
+    function getApproversCount() public view returns (uint) {
+        return approversCount;
     }
 
 }
